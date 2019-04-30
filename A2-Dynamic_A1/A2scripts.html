@@ -1,0 +1,112 @@
+function addRow() {
+  var mytable = document.getElementById("students");
+  var row = mytable.insertRow(mytable.rows.length);
+  for (var i = 0; i < mytable.rows[0].cells.length; i++) {
+    var createRow = row.insertCell(i);
+    createRow.setAttribute('contentEditable', 'true');
+  }
+}
+
+
+function addColumn() {
+  var mytable = document.getElementById('students');
+  var createColumn;
+  for (var i = 0; i < mytable.rows.length; i++) {
+
+    if (i == 0) {
+      createColumn = mytable.rows[i].insertCell(mytable.rows[i].cells.length - 1);
+      createColumn.innerHTML = "Assignment";
+      createColumn.style.backgroundColor = "#4c8faf";
+      createColumn.style.font = "bold 16px Trebuchet MS,sans-serif";
+    } else {
+      createColumn = mytable.rows[i].insertCell(mytable.rows[i].cells.length - 1);
+      createColumn.innerHTML = "";
+      createColumn.setAttribute('contentEditable', 'true');
+    }
+
+  }
+}
+
+function deleteRows() {
+  var mytable = document.getElementById('students');
+  var endrow = mytable.rows.length - 1;
+
+  for (var i = endrow; i > 0; i--) {
+    mytable.deleteRow(i);
+    break;
+  }
+}
+
+
+function saveTable(cname) {
+  var mytable = document.getElementById('students');
+  var nrows = mytable.rows.length - 1;
+  var ncols = mytable.rows[0].cells.length;
+
+  var tabledata = "";
+
+  for (var i = 1; i < mytable.rows.length; i++) {
+    tabledata += mytable.rows[i].innerText + "~";
+  }
+  alert(tabledata);
+
+  var data = "rows = " + nrows + " cols = " + ncols;
+  setCookie("data", data, 60);
+}
+
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  var expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie() {
+  var value = document.cookie;
+  return value;
+  //var re = new RegExp("=([^;]+)");
+ // var value = re.exec(document.cookie);
+  //return (value != null) ? unescape(value[0]) : null;
+}
+
+function Display() {
+  var data = getCookie("Table data");
+  if (data != "") {
+    //console.log(data);
+    alert("Table has" + data);
+  } else {
+    alert("There is no data in the table");
+  }
+}
+
+
+function myFunction() {
+  var mytable = document.getElementById("students");
+
+  for (var i = 1; i < mytable.rows.length; i++) {
+    var cells = mytable.rows[i].cells;
+    var sum = 0;
+    var counter = 0;
+
+    for (var j = 2; j < (cells.length - 1); j++) {
+      var cell = cells[j];
+      var add = parseInt(cell.innerHTML);
+      if (!isNaN(add)) {
+        sum = sum + add;
+        counter++;
+      }
+    }
+
+    var average = sum / counter;
+
+    mytable.rows[i].cells[mytable.rows[0].cells.length - 1].innerHTML = "<td>" + Math.round(average) + "%" + "</td>";
+
+    if (average < 40) {
+      mytable.rows[i].cells[mytable.rows[0].cells.length - 1].style.backgroundColor = "red";
+      mytable.rows[i].cells[mytable.rows[0].cells.length - 1].style.color = "white";
+    }
+
+  }
+}
+
+document.getElementById('myFunction').onclick = myFunction;

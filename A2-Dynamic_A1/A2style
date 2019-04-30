@@ -1,0 +1,57 @@
+#students {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  overflow: hidden;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+td,
+th {
+  position: relative;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #4c8faf;
+  color: black;
+}
+
+td:hover::after,
+th:hover::after {
+  content: "";
+  position: absolute;
+  background-color: #ddd;
+  left: 0;
+  top: -5000px;
+  height: 10000px;
+  width: 100%;
+  z-index: -1;
+}
+
+#StudentName {
+  text-align: left;
+}
+
+#IDnumber {
+  text-align: left;
+}
+
+.button {
+  background-color: #4c8faf;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
