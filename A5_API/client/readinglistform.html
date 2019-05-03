@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script2.js"></script>
+    <meta charset="UTF-8">
+    <title>Reading List Database</title>
+</head>
+<body>
+
+<h1>CREATE</h1>
+
+
+<table>
+
+
+<div>
+    <form id="readingform" method="post">
+
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" placeholder="Name of item in Reading List">
+
+    <label for="url">URL</label>
+    <input type="url" name="url" id="url" placeholder="URL link for the reading list resource">
+
+    <label for="description">Description</label>
+    <input type="description" name= "description" id="description" placeholder="Description of the resource">
+
+    <input type="submit" name= "submit" id="submit" value="Submit">
+    
+  </form>
+</div>
+
+</table>
+
+
+<div>
+   <h1>RETRIEVE BY ID</h1>
+
+    <form id="formget">
+      <select id="select" name="selection">
+        <option>ID</option>
+       <!--  <option>name</option> -->
+      </select>
+      <br>
+      <input type="text" id="identifier"  placeholder="Enter value" value="">
+      <br>
+      <input type="submit" id="inputget"  value="Submit">
+    </form> 
+
+    <div  type="json" id="get_results"></div>
+
+</div>
+
+<div>
+
+ <h1>RETRIEVE BY NAME</h1>
+
+    <form id="formget2">
+      <select id="select" name="selection">
+        <option value='idvalue'>Name</option>
+<!--         //<option value='namevalue'>name</option> -->
+      </select>
+      <br>
+      <input type="text" id="identifier2"  placeholder="Enter value" value="">
+      <br>
+      <input type="submit" id="inputget2"  value="Submit">
+    </form> 
+
+    <div  type="json" id="get_results2"></div>
+
+</div>
+
+<div>
+
+  <h1>UPDATE BY NAME</h1>
+    <div>
+      <form id="updateform">
+      <label for="Column">Where ID</label>
+      <input placeholder="Place enter ID" id="IDset1" type="text" value="">
+      <br>
+      <label for="name">Name</label>
+      <input type="text" name= "name" id="IDname" placeholder="Value to replace">
+      <br>
+      <input id="upbtn1" type="submit" value="Submit">
+    </form> 
+
+    <div id="put_results"></div>
+
+  </div>
+
+  <div>
+
+<h1>UPDATE BY DESCRIPTION</h1>
+    <div>
+      <form id="updateform">
+      <label for="Column">Where ID</label>
+      <input placeholder="Place enter ID" id="IDset2" type="text" value="">
+      <br>
+      <label for="description">Description</label>
+      <input type="description" name= "description" id="IDdesc" placeholder="Description of the resource">
+      <br>
+      <input id="upbtn2" type="submit" value="Submit">
+    </form> 
+
+    <div id="put_results"></div>
+
+</div>
+
+<div>
+
+<h1>UPDATE BY URL</h1>
+    <div>
+      <form id="updateform">
+      <label for="Column">Where ID</label>
+      <input placeholder="Place enter ID" id="IDset3" type="text" value="">
+      <br>
+      <label for="url">URL</label>
+      <input type="text" name= "url" id="IDurl" placeholder="Value to replace">
+      <br>
+      <input id="upbtn3" type="submit" value="Submit">
+    </form> 
+
+    <div id="put_results"></div>
+
+
+  
+</div>
+
+<!-- the html delete part -->
+<h1>DELETE</h1>
+<div>
+      <form  id="formDelete">
+        <label for="id">Enter Id:</label>
+        <input type="text" name="id" id='IDdelete' placeholder="Enter id">
+        <input type="submit" id="delbtn" value="Submit">
+      </form>
+
+</div>
+
+
+
+
+
+<!-- 
+
+  <h2>Update</h2>
+      <div>
+        <form id="updateform">
+            
+            <label for="Column">Set Column</label>
+            <input type="text" name="column" placeholder="Place enter the name of column to update">
+            
+            <label for="updatevalue">To</label>
+            <input type="text" name="updatevalue" placeholder="Place enter the value to update">
+
+
+            <label for="id">Where Id is</label>
+            <input type="int" name="id" placeholder="Place enter the id of record to update">
+            
+            <input type="submit" class="button" name="update" value="Update"> 
+      </form>
+    </div>
+
+ -->
+</body>
+</html>
+
+
+
